@@ -18,7 +18,7 @@ export class TaskService {
 
     await this.repository.save(createTaskDto);
 
-    return `New task created succefully ${JSON.stringify(newTask)}`;
+    return `New task created successfully ${JSON.stringify(newTask)}`;
   }
 
   findAll() {
