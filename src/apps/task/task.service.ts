@@ -18,15 +18,25 @@ export class TaskService {
 
     await this.repository.save(createTaskDto);
 
-    return `New task created successfully ${JSON.stringify(newTask)}`;
+    return newTask;
   }
 
-  findAll() {
-    return `This action returns all task`;
+  async  findAll() {
+
+    const task = await this.repository.find()
+    return task;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} task`;
+  async findOne(id: string) {
+
+    const task = await this.repository.find(
+      {
+        where: {
+          id
+        }
+      }
+    )
+    return task;
   }
 
   update(id: number, updateTaskDto: UpdateTaskDto) {
